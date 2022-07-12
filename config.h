@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 500;
+const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -65,14 +65,14 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function       format          argument */
-	{ run_command,    " [ %s ]",      "sb-volume"                             },
-	{ wifi_perc,      " [  %s%% ]",  "wlp3s0"                                },
-	{ disk_perc,      " [  %s%% ]",  "/"                                     },
-	{ ram_perc,       " [  %s%% ]",  NULL	                                  },
-	{ cpu_perc,       " [  %s%% ]",  NULL	                                  },
-	{ temp,           " [  %s°C ]",  "/sys/class/thermal/thermal_zone2/temp" },
-	{ uptime,         " [  %s ]",    NULL                                    },
-	{ kernel_release, " [  %s ]",    NULL                                    },
-	{ datetime,       " [  %s ]",    "%a %d %b"                              },
-	{ datetime,       " [  %s ]",    "%I:%M:%S %p"                           },
+	{ run_command,    " %s |",      "sb-volume"                             },
+	/* { wifi_perc,      "  %s%% |",  "wlp3s0"                                }, */
+	{ disk_perc,      "  %s%% |",  "/"                                     },
+	{ ram_perc,       "  %s%% |",  NULL	                                  },
+	{ cpu_perc,       "  %s%% |",  NULL	                                  },
+	{ temp,           "  %s°C |",  "/sys/class/thermal/thermal_zone2/temp" },
+	{ uptime,         "  %s |",    NULL                                    },
+	{ kernel_release, "  %s |",    NULL                                    },
+	{ datetime,       "  %s |",    "%a %d %b"                              },
+	{ datetime,       "  %s ",     "%I:%M:%S %p"                           },
 };
